@@ -1,23 +1,35 @@
 <h1>New Article</h1>
 
 <%= form_with model: @article do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% @article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+  <div class="labeled-control">
+    <div>
+        <%= form.label :title %>
+    </div>
+    <div>
+        <%= form.text_field :title, style:"width: 100%"%>
+    </div>
+    <div>
+        <% @article.errors.full_messages_for(:title).each do |message| %>
+        <div class="error-message"><%= message %></div>
+        <% end %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-    <% @article.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+  <div class="labeled-control">
+    <div>
+        <%= form.label :body %>
+    </div>
+    <div>
+        <%= form.text_area :body, style:"width: 100%; height: 200px;" %>
+    </div>
+    <div>
+        <% @article.errors.full_messages_for(:body).each do |message| %>
+        <div class="error-message"><%= message %></div>
+        <% end %>
+    </div>
   </div>
 
-  <div>
+  <div class="labeled-control">
     <%= form.submit %>
   </div>
 <% end %>
