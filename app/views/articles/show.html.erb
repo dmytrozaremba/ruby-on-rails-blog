@@ -10,3 +10,24 @@
                     method: :delete,
                     data: { confirm: "Are you sure?" } %>
 </div>
+
+<h2>Add a comment:</h2>
+<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+  <div class="labeled-control">
+    <div>
+        <%= form.label :commenter %>
+    </div>
+    <div>
+        <%= form.text_field :commenter, style:"width: 40%"%>
+    </div>
+  </div>
+
+  <div class="labeled-control">
+    <div>
+        <%= form.label :comment %>
+    </div>
+    <div>
+        <%= form.text_area :comment, style:"width: 40%; height: 80px;" %>
+    </div>
+  </div>
+<% end %>
