@@ -1,17 +1,21 @@
 <h1>Articles</h1>
 
+<h2>Our blog has <%= Article.public_count %> articles and counting!</h2>
+
 <% @articles.each do |article| %>
-<div class="post-list-item">
-    <h2>
-        <%= article.title %>
-    </h2>
-    <div>
-        <%= article.body[0..250].gsub(/\s\w+\s*$/, '...') %>
+  <% unless article.archived? %>
+    <div class="post-list-item">
+        <h2>
+            <%= article.title %>
+        </h2>
+        <div>
+            <%= article.body[0..250].gsub(/\s\w+\s*$/, '...') %>
+        </div>
+        <div class="read-more">
+            <%= link_to "Read more", article%>
+        </div>
     </div>
-    <div class="read-more">
-        <%= link_to "Read more", article%>
-    </div>
-</div>
+  <% end %>
 <% end %>
 
 

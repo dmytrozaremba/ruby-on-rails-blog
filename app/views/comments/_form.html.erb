@@ -18,6 +18,15 @@
   </div>
 
   <div class="labeled-control">
+    <div>
+       <%= form.label :status %>
+    </div>
+    <div>
+        <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+    </div>
+  </div>
+
+  <div class="labeled-control">
     <%= form.submit %>
   </div>
   
