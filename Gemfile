@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'rubocop', group: :development
 gem 'solargraph', group: :development
+
+gem 'devise'
