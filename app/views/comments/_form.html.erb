@@ -1,12 +1,4 @@
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <div class="labeled-control">
-    <div>
-        <%= form.label :commenter %>
-    </div>
-    <div>
-        <%= form.text_field :commenter, style:"width: 40%"%>
-    </div>
-  </div>
 
   <div class="labeled-control">
     <div>
