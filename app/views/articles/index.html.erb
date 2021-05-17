@@ -5,15 +5,15 @@
 <% @articles.each do |article| %>
   <% unless article.archived? %>
     <div class="post-list-item">
-        <h2>
-            <%= article.title %>
-        </h2>
-        <div>
-            <%= article.body[0..250].gsub(/\s\w+\s*$/, '...') %>
-        </div>
-        <div class="read-more">
-            <%= link_to "Read more", article%>
-        </div>
+      <div style="font-size: 24px;">
+            <%= article.title %> | <%= article.user.username %>
+      </div>
+      <div>
+          <%= article.body[0..250].gsub(/\s\w+\s*$/, '...') %>
+      </div>
+      <div class="read-more">
+          <%= link_to "Read more", article%>
+      </div>
     </div>
   <% end %>
 <% end %>
