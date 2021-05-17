@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[show index]
+
   def index
     @articles = Article.all
   end
@@ -28,7 +30,14 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
 
+    if @article.user != current_user
+      flash[:alert] = 'Not authorized'
+      redirect_to @article
+      return
+    end
+
     if @article.update(article_params)
+      flash[:notice] = 'Article has been updated'
       redirect_to @article
     else
       render :edit
@@ -37,6 +46,14 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
+
+    if @article.user != current_user
+      flash[:alert] = 'Not authorized'
+      redirect_to @article
+      return
+    end
+
+    flash[:notice] = 'Article has been deleted'
     @article.destroy
 
     redirect_to root_path
