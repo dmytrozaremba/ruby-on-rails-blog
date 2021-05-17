@@ -1,24 +1,10 @@
 <%= form_with model: [ @article, Comment.new ] do |form| %>
 
-  <div class="labeled-control">
-    <div>
-        <%= form.label :body %>
-    </div>
-    <div>
-        <%= form.text_area :body, style:"width: 40%; height: 80px;" %>
-    </div>
+  <div class="field">
+    <%= form.text_area :body, style:"width: 100%; height: 80px;" %>
   </div>
 
-  <div class="labeled-control">
-    <div>
-       <%= form.label :status %>
-    </div>
-    <div>
-        <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
-    </div>
-  </div>
-
-  <div class="labeled-control">
+  <div class="field">
     <%= form.submit %>
   </div>
   

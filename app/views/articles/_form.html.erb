@@ -1,5 +1,5 @@
 <%= form_with model: article do |form| %>
-  <div class="labeled-control">
+  <div class="field">
     <div>
         <%= form.label :title %>
     </div>
@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <div class="labeled-control">
+  <div class="field">
     <div>
         <%= form.label :body %>
     </div>
@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <div class="labeled-control">
+  <div class="field">
     <div>
        <%= form.label :status %>
     </div>
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div class="labeled-control">
+  <div class="field">
     <%= form.submit %>
   </div>
 <% end %>

@@ -1,12 +1,19 @@
-<p>
-  <strong><%= comment.user.username %>: </strong>
-  <%= comment.body %>
-</p>
+<div class="comment-wrapper">
+  <div class="header">
+    <div class="title">
+      <span class="username"><%= comment.user.username %></span> 
+      <span class="time"><%= time_ago_in_words(comment.created_at) %> ago</span>
+    </div>
+    <div class="buttons">
+      <% if current_user == comment.user %>
+        <%= link_to "Delete", [comment.article, comment],
+                        method: :delete,
+                        data: { confirm: "Are you sure?" }, :class => 'button delete-button' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="body">
+    <%= comment.body %>
+  </div>
 
-<div>
-  <% if current_user == comment.user %>
-    <%= link_to "Delete Comment", [comment.article, comment],
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
-  <% end %>
 </div>
