@@ -16,7 +16,6 @@
 </div>
 
 <% @articles.each do |article| %>
-  <% if article.user == current_user || article.public? %>
     <div class="post-list-item">
       <div style="font-size: 24px;">
             <%= article.title %> | <%= article.user.username %>
@@ -31,6 +30,5 @@
           <%= link_to "Read more", article%>
       </div>
     </div>
-  <% end %>
 <% end %>
 <div class="digg_pagination"> <%= will_paginate(@articles,:previous_label => "&laquo;", :next_label => "&raquo;",:outer_window => 1,:inner_window => 0) %></div>

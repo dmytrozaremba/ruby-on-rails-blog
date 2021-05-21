@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show index]
 
   def index
-    @articles = Article.search(params[:search]).order('created_at DESC').page(params[:page]).per_page(5)
+    @articles = Article.where(['user_id = ? or status = ?',
+                               current_user, 'public']).search(params[:search]).order('created_at DESC').page(params[:page]).per_page(2)
   end
 
   def show
