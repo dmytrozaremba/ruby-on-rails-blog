@@ -59,3 +59,4 @@ gem 'rubocop', group: :development
 gem 'solargraph', group: :development
 
 gem 'devise'
+gem 'will_paginate', '~> 3.1.0'
