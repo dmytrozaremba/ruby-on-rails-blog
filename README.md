@@ -1,5 +1,5 @@
 # Ruby on rails blog
-Visit: https://polar-fortress-66422.herokuapp.com/
+Visit: https://rails-lorem-blog.herokuapp.com
 
 ## Implemented Features
 - Getting started (articles, and comments)
